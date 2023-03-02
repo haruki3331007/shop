@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/header', customer: current_customer %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+    </footer>
   </body>
 </html>
