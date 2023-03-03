@@ -1,0 +1,21 @@
+<h3>ジャンル一覧・追加</h3>
+
+<%= render "new" %>
+
+<table>
+    <thead>
+        <tr>
+            <th>ジャンル</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <% @genres.each do |g| %>
+        <tbody>
+            <tr>
+                <td><%= g.name %></td>
+                <td><%= link_to "編集する", edit_admin_genre_path(g.id) %></td>
+            </tr>
+        </tbody>
+    <% end %>
+</table>

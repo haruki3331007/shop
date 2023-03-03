@@ -1,12 +1,12 @@
 <h1>header</h1>
 
-<%= image_tag 'logo.jpeg'%>
+<%= image_tag 'logo.jpeg', :width=>"100"%>
 
 <nav>
     <% if customer_signed_in? %>
         <ul>
             <li>
-                <%=link_to "マイページ" , about_path %>
+                <%=link_to "マイページ" ,  end_user_path(current_customer.id) %>
             </li>
 
             <li>
@@ -18,8 +18,29 @@
             </li>
 
             <li>
-                <!--<%=link_to "ログアウト" ,  customer_registratio_path, method: :delete %> -->
                 <%=link_to "ログアウト" ,  destroy_customer_session_path, method: :delete %>
+            </li>
+        </ul>
+    <% elsif admin_signed_in?  %>
+        <ul>
+            <li>
+                <%=link_to "商品一覧" , about_path %>
+            </li>
+
+            <li>
+                <%=link_to "会員一覧" , admin_end_users_path %>
+            </li>
+
+            <li>
+                <%=link_to "注文履歴一覧" , about_path %>
+            </li>
+
+            <li>
+                <%=link_to "ジャンル一覧" , admin_genres_path %>
+            </li>
+
+            <li>
+                <%=link_to "ログアウト" ,  destroy_admin_session_path, method: :delete %>
             </li>
         </ul>
     <% else %>

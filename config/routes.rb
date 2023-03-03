@@ -9,10 +9,16 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    get '/' => 'homes#top'
+    root to: 'homes#top'
     get 'about' => 'homes#about'
+
+    resources :end_users
   end
 
-  
+  namespace :admin do
+    resources :end_users
+    resources :genres
+  end
+
 
 end
