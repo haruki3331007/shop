@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
 
     resources :end_users
+    resources :items
   end
 
   namespace :admin do
