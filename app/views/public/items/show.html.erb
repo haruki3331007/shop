@@ -1,0 +1,13 @@
+<%= render 'public/genre_index' %>
+
+<div class="item"> 
+    <%= attachment_image_tag @item, :image %>
+
+    <div class="item_details">
+        <h3><%= @item.name %></h3>
+        <%= @item.introduction %>
+        ￥<%= @item_price %>(税込)
+        個数選択
+        カートに入れる
+
+</div>

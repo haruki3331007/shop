@@ -5,6 +5,7 @@ class Public::EndUsersController < ApplicationController
 
     def edit
         @customer=current_customer
+        current_customer.update(is_active: true)
     end
 
     def update
@@ -14,9 +15,13 @@ class Public::EndUsersController < ApplicationController
     end
 
     def destroy
-        customer=Customer.find(params[:id])
-        customer.destroy
-        
+        if current_customer.is_active==false 
+            current_customer.destroy
+            redirect_to root_path
+        else
+        #current_customer.is_active = false
+            current_customer.update(is_active: false)
+        end
     end
 
     private
