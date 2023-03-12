@@ -6,8 +6,8 @@
     <div class="item_details">
         <h3><%= @item.name %></h3>
         <%= @item.introduction %>
-        ￥<%= @item_price %>(税込)
-        個数選択
-        カートに入れる
+        ￥<%= @item.price_with_tax %>(税込)
+    </div>
 
+    <%= render "public/cart_items/new" %>
 </div>

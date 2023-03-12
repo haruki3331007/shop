@@ -1,5 +1,4 @@
 <div class="information">
-    <%= @customer.is_active %>
 
     <h3>会員情報編集</h3>
     <%= form_with url: end_user_path, model: @customer do |c| %>
@@ -33,7 +32,7 @@
                 <tr>
                     <td></td>
                     <td><%= c.submit "編集内容を保存" %></td>
-                    <td><%= link_to "退会する", end_user_path(@customer), method: :delete %></td>
+                    <td><a data-method="delete" href="/end_users/<%= current_customer.id %>">退会する</a></td>
                 </tr>
             </tbody>
         </table>

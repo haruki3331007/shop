@@ -8,12 +8,23 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
 
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
 
-    resources :end_users
+    resources :end_users do
+      resources :cart_items
+      resources :address
+      resources :orders
+      resources :order_items
+    end
+    
     resources :items
+    
   end
 
   namespace :admin do

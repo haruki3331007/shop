@@ -15,7 +15,11 @@
         <tbody>
             <tr>
                 <td><%= c.id %></td>
-                <td><%= c.last_name %><%= c.first_name %></td>
+                <td>
+                    <%= link_to admin_end_user_path(c) do %>
+                        <%= c.last_name %><%= c.first_name %>
+                    <% end %>
+                </td>
                 <td><%= c.email %></td>
                 <% if c.is_active==true %>
                     <td>有効</td>
