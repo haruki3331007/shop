@@ -19,7 +19,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   end
 
   def email_check
-    if ((@customer=Customer.find_by(email: params[:customer][:email]))!=nil) && (@customer.is_active==false)
+    if ((@customer=Customer.find_by(email: params[:customer][:email]))!=nil) && (@customer.is_active!=true) 
       @customer.destroy
     end
   end

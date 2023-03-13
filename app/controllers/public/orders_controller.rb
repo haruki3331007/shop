@@ -45,7 +45,7 @@ class Public::OrdersController < ApplicationController
             order_detail.order_id=@order.id
             order_detail.item_id=cart.item_id
             order_detail.amount=cart.amount
-            order_detail.price=cart.item.price
+            order_detail.price=cart.item.price_with_tax
             order_detail.save
         end
 

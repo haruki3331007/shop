@@ -1,0 +1,35 @@
+<h3>注文一覧</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>注文商品</th>
+            <th>支払い金額</th>
+            <th>ステータス</th>
+            <th>注文詳細</th>
+        <tr>
+    </thead>
+
+    <tbody>
+        <% @orders.each do |o| %>
+            <tr>
+                <td><%= o.updated_at.to_s(:datetime_jp) %></td>
+                <td>
+                    <%= o.postal_code %>
+                    <%= o.address %>
+                    <%= o.address_name %>
+                </td>
+                <td>
+                    <% (o.order_details.all).each do |od| %>
+                        <%= od.item.name %>
+                    <% end %>
+                </td>
+                <td><%= o.payment_amount %></td>
+                <td><%= o.status %></td>
+                <td><%= link_to "表示する", end_user_order_item_path(current_customer.id, o.id)%></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
