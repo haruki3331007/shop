@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
 
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  # devise_scope :user do
+  #   get '/users/sign_out' => 'devise/sessions#destroy'
+  # end
 
   scope module: :public do
     root to: 'homes#top'
