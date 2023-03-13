@@ -18,7 +18,7 @@
         <br> 
 
         <%= o.radio_button :carriage, 1 %>登録済み住所から選択
-        <%= o.collection_select :customer_id, @addresses, :id, :name %>
+        <%= o.collection_select :customer_id, @addresses, :id, :information %>
         <br>
         
         <%= o.radio_button :carriage, 2 %>新しいお届け先<br>
