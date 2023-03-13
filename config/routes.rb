@@ -28,9 +28,13 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :end_users
+    resources :end_users do
+      resources :orders
+    end
     resources :genres
     resources :items
+    resources :order_items
+
   end
 
 

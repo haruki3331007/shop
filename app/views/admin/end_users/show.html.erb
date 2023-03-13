@@ -51,6 +51,6 @@
 
 </table>
 
-<%= link_to "編集する ", edit_admin_end_user_path(@customer) %>
+<%= link_to "編集する ", edit_admin_end_user_path(@customer.id) %>
 
-注文履歴一覧を見る
+<%= link_to "注文履歴一覧を見る ", admin_end_user_orders_path(@customer.id) %>
