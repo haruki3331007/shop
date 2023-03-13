@@ -8,6 +8,6 @@
         <%= @item.introduction %>
         ￥<%= @item.price_with_tax %>(税込)
     </div>
-
-    <%= render "public/cart_items/new" %>
 </div>
+
+<% if customer_signed_in? %><%= render "public/cart_items/new" %><% end %>

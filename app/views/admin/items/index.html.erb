@@ -16,7 +16,7 @@
         <tbody>
             <tr>
                 <td><%= i.id %></td>
-                <td><%= link_to i.name, edit_admin_item_path(i.id) %></td>
+                <td><%= link_to i.name, admin_item_path(i.id) %></td>
                 <td><%= i.price %></td>
                 <td><%= i.genre.name %></td>
                 <% if i.is_active==true %>

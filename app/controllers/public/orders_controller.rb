@@ -37,8 +37,17 @@ class Public::OrdersController < ApplicationController
         @order=Order.find(params[:id])
         @order.update(amount_params)
 
-        @order_detail=OrderDetail.new
-        #@order_detail
+        @carts=current_customer.cart_items.all
+
+        i=0
+        @carts.each do |cart|
+            order_detail=OrderDetail.new
+            order_detail.order_id=@order.id
+            order_detail.item_id=cart.item_id
+            order_detail.amount=cart.amount
+            order_detail.price=cart.item.price
+            order_detail.save
+        end
 
         current_customer.cart_items.destroy_all
 

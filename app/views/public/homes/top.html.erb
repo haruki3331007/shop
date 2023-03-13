@@ -16,29 +16,16 @@
     <div class="new">
         <h2>新着商品</h2>
 
-        <div class="new_product">
-            <%= image_tag "top_sample1.jpeg", :width=>"100" %>
-            <p>商品名</p>
-            <p>￥10,000</p>
-        </div>
+        <% @items.first(4).each do |i| %>
+            <div class="new_product">
+                <%= link_to item_path(i.id) do%>
+                    <%= attachment_image_tag i, :image %>
+                    <p><%= i.name %></p>
+                <% end %>
 
-        <div class="new_product">
-            <%= image_tag "top_sample2.jpeg", :width=>"100" %>
-            <p>商品名</p>
-            <p>￥10,000</p>
-        </div>
-
-        <div class="new_product">
-            <%= image_tag "top_sample3.jpeg", :width=>"100" %>
-            <p>商品名</p>
-            <p>￥10,000</p>
-        </div>
-
-        <div class="new_product">
-            <%= image_tag "top_sample4.jpeg", :width=>"100" %>
-            <p>商品名</p>
-            <p>￥10,000</p>
-        </div>
+                <p>￥<%= i.price %></p>
+            </div>
+        <% end %>
 
         <%= link_to "全ての商品を見る", items_path %>
     </div>
