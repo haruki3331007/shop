@@ -1,0 +1,17 @@
+<%= render 'public/genre_index' %>
+
+
+<div class="contents">
+    <h3><%= @genre.name %>一覧</h3>
+    <h4>(全<%= @genres.count%>件)</h4>
+
+    <div class="items">
+        <% @genres.each do |g| %>
+            <div class="item">
+                <%= attachment_image_tag g, :image %>
+                <%= link_to g.name, item_path(g.id) %>
+                ￥<%= g.price %>
+            </div >
+        <% end %>
+    </div>
+</div>

@@ -6,18 +6,15 @@
         </thead>
 
         <tbody>
-            <tr>
-                <td>ケーキ</td>
-            </tr>
-            <tr>
-                <td>焼き菓子</td>
-            </tr>
-            <tr>
-                <td>プリン</td>
-            </tr>
-            <tr>
-                <td>キャンディ</td>
-            </tr>
+            <% (Genre.all).each do |g| %>
+                <tr>
+                    <td>
+                        <%= link_to genre_path(g.id) do%>
+                            <%= g.name %>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
         </tbody>
     </table>
 </table>
